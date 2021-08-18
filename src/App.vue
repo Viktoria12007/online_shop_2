@@ -6,18 +6,31 @@
 
 
 <script>
-import vMainWrapper from './components/v-main-wrapper.vue'
+import vMainWrapper from './components/v-main-wrapper.vue';
 
 export default {
   name: 'App',
   components: {
     vMainWrapper
+  },
+  data() {
+    return {
+  
+    }
+  },
+  methods: {
+  
   }
 }
 </script>
 
 
 <style>
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

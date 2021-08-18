@@ -43,10 +43,10 @@ export default {
 
 <style lang="scss">
 .v-catalog-item {
-    flex-basis: 25%;
-    box-shadow: 0 0 8px 0 #e0e0e0;
+    width: 250px;
     padding: 16px;
     margin-bottom: 16px;
+    box-shadow: 0 0 8px 0 #e0e0e0;
     &__image {
         width: 100px;
     }
