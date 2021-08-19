@@ -9,6 +9,14 @@
     @select="selectCategory" 
     :selected="selected"
     />
+    <!-- <v-select 
+    :options="categories"
+    @select="selectCategory" 
+    :selected="selected"
+    :isExpanded="IS_DESKTOP"
+    Изменение состояния приложения в зависимости от 
+    изменения ширины экрана
+    /> -->
    <div class="v-catalog__list">
    <v-catalog-item 
    v-for="product in filteredProducts"
@@ -45,7 +53,9 @@ export default {
    computed: {
      ...mapGetters([
        'PRODUCTS',
-       'CART'
+       'CART',
+      //  'IS_DESKTOP'  Изменение состояния приложения в зависимости от 
+      //  изменения ширины экрана
      ]),
      filteredProducts() {
        if (this.sortedProducts.length) {

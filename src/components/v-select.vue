@@ -5,6 +5,10 @@
   >{{selected}}</p>
   <div class="options"
   v-if="areOptionsVisible">
+  <!-- <div class="options"
+  v-if="areOptionsVisible || isExpanded"> 
+  Изменение состояния приложения в зависимости от
+  ширины экрана-->
     <p
     v-for="option in options"
     :key="option.value"
@@ -32,6 +36,10 @@ export default {
          type: String,
          default: ''
      }
+    //  isExpanded: {      Изменение состояния приложения в зависимости
+    //    type: Boolean,   от ширины экрана
+    //    default: false
+    //  }
    },
    data() {
        return {

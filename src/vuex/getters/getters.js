@@ -1,4 +1,10 @@
 export default {
+    // IS_MOBILE(state) {          Изменение состояния приложения в зависимости,
+    //     return state.isMobile   от ширины экрана
+    // },
+    // IS_DESKTOP(state) {
+    //     return state.isDesktop
+    // },
     PRODUCTS(state) {
         return state.products
     },

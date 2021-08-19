@@ -1,4 +1,12 @@
 export default {
+    // SWITCH_MOBILE: (state) => {    Изменение состояния приложения в зависимости,
+    //   state.isMobile = true,       от ширины экрана
+    //   state.isDesktop = false
+    // },
+    // SWITCH_DESKTOP: (state) => {
+    //   state.isMobile = false,
+    //   state.isDesktop = true
+    // },
     SET_PRODUCTS_TO_STATE: (state, products) => {
         state.products = products;
       },

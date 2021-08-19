@@ -7,6 +7,7 @@
 
 <script>
 import vMainWrapper from './components/v-main-wrapper.vue';
+import {mapActions, mapGetters} from 'vuex';
 
 export default {
   name: 'App',
@@ -18,8 +19,29 @@ export default {
   
     }
   },
+  computed: {
+  ...mapGetters([
+      'IS_MOBILE',
+      'IS_DESKTOP'
+    ])
+  },
   methods: {
-  
+  ...mapActions([
+      'SET_MOBILE',
+      'SET_DESKTOP'
+    ])
+  },
+  mounted() {
+    // window.addEventListener('resize', () => {  // изменение состояния приложения,                                                
+    //   if (window.innerWidth > 768) {           // в зависимости от размера экрана
+    //     this.SET_DESKTOP();
+    //     console.log('Desktop', this.IS_DESKTOP);
+    //   }
+    //   else {
+    //     this.SET_MOBILE();
+    //     console.log('Mobile', this.IS_MOBILE);
+    //   }
+    // })
   }
 }
 </script>

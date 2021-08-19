@@ -1,4 +1,10 @@
 export default {
+    // SET_MOBILE({commit}) {      Изменение состояния приложения в зависимости,
+    //   commit('SWITCH_MOBILE')   от ширины экрана
+    // },
+    // SET_DESKTOP({commit}) {
+    //   commit('SWITCH_DESKTOP')
+    // },
     ADD_TO_CART({commit}, product) {
        commit('SET_CART', product)
     },
