@@ -74,7 +74,6 @@ export default {
     width: 200px;
     text-align: left;
     cursor: pointer;
-    margin-bottom: 20px;
     background-color: #ffffff;
     &__title {
         padding: 10px;

@@ -3,7 +3,7 @@
   <router-link :to="{ name: 'cart', params: { cart_data: CART }}">
     <div class="v-catalog__link_to_cart">Cart: {{CART.length}}</div>
   </router-link>
-   <h2>Catalog</h2>
+   <h2 class="v-catalog__title">Catalog</h2>
    <div class="filters">
     <v-select 
     :options="categories"
@@ -136,6 +136,9 @@ export default {
 
 <style lang="scss">
 .v-catalog {
+    &__title {
+      margin-bottom: 20px;
+    }
     &__list {
     display: flex;
     flex-wrap: wrap;
@@ -154,22 +157,52 @@ export default {
    display: flex;
    justify-content: space-between;
    align-items: center;
+   margin-bottom: 20px;
  }
- .range-slider {
-   width: 200px;
-   margin: auto 16px;
-   text-align: center;
-   position: relative;
- }
- .range-slider svg, .range-slider input[type=range] {
-   position: absolute;
-   left: 0;
-   bottom: 0;
- }
- input[type=range]::-webkit-slider-thumb {
-   z-index: 2;
-   position: relative;
-   top: 2px;
-   margin-top: -7px;
- }
+.range-slider {
+    width: 200px;
+    margin: auto 16px;
+    text-align: center;
+    position: relative;
+  }
+.range-slider input[type=range] {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    cursor: pointer;
+}
+::-webkit-slider-thumb {
+    z-index: 2;
+    position: relative;
+    top: 2px;
+    margin-top: -7px;     
+}
+input[type=range]{
+    -webkit-appearance: none;
+}
+input[type=range]::-webkit-slider-runnable-track {
+    width: 300px;
+    height: 5px;
+    background: #ddd;
+    border: none;
+    border-radius: 3px;
+}
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: 1.5px solid #C1C1C1;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    background: #EDEDED;
+}
+input[type=range]:focus {
+    outline: none;
+}
+input[type=range]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 5px;
+    box-shadow: 1px 1px 1px #C6C6C6, 0px 0px 1px #787878;
+    border-radius: 2px;
+    border: 0.2px solid #787878;
+}
 </style>

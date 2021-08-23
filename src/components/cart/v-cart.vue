@@ -3,7 +3,7 @@
     <router-link :to="{ name: 'catalog'}">
     <div class="v-catalog__link_to_cart">Back to catalog</div>
   </router-link>
-    <h2>Cart</h2>
+    <h2 class="v-cart__title">Cart</h2>
     <p v-if="!cart_data.length">There are no products in cart...</p>
     <v-cart-item 
     v-for="(item, index) in cart_data"
@@ -73,6 +73,9 @@ export default {
 <style lang="scss">
 .v-cart {
     margin-bottom: 100px;
+    &__title {
+        margin-bottom: 20px;
+    }
     &__total {
       display: flex;
       justify-content: center;
