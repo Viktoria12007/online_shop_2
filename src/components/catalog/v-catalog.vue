@@ -86,6 +86,7 @@ export default {
        'CART',
       //  'IS_DESKTOP'  Изменение состояния приложения в зависимости от 
       //  изменения ширины экрана
+      'SEARCH_VALUE'
      ]),
      filteredProducts() {
        if (this.sortedProducts.length) {
@@ -129,15 +130,31 @@ export default {
         this.minPrice = tmp;
       }
       this.setFilter();
+     },
+     sortProductsBySearchValue(value) {
+        this.sortedProducts = [...this.PRODUCTS];
+       if (value) {
+       this.sortedProducts = this.sortedProducts.filter((item) => {
+         return item.name.toLowerCase().includes(value.toLowerCase())
+       })
+       }
+       else {
+         return this.sortedProducts = this.PRODUCTS
+       }
      }
     },
-   watch: {},
+   watch: {
+     SEARCH_VALUE() {
+       this.sortProductsBySearchValue(this.SEARCH_VALUE)
+     }
+   },
    mounted() {
        this.GET_PRODUCTS_FROM_API()
        .then((response) => {
           if(response.data) {
             console.log('Data arrived!');
             this.setFilter();
+            this.sortProductsBySearchValue(this.SEARCH_VALUE)
           }
        })
    }
@@ -158,7 +175,7 @@ export default {
     }
     &__link_to_cart {
       position: absolute;
-      top: 10px;
+      top: 100px;
       right: 10px;
       padding: 16px;
       border: 1px solid lightgray;

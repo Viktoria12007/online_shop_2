@@ -1,4 +1,7 @@
 export default {
+   SET_SEARCH_VALUE_TO_VUEX: (state, value) => {
+     state.searchValue = value;
+   },
     // SWITCH_MOBILE: (state) => {    Изменение состояния приложения в зависимости,
     //   state.isMobile = true,       от ширины экрана
     //   state.isDesktop = false

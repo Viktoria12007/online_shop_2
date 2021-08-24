@@ -11,6 +11,7 @@ Vue.use(Vuex);
 
 const store = new Vuex.Store({
    state: {
+      searchValue: '',
     //    isMobile: false,  Изменения состояния приложения, в зависимости от
     //    isDesktop: true,  ширины экрана
        products: [],
