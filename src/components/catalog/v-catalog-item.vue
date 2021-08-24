@@ -10,13 +10,13 @@
     <img class="v-catalog-item__image" :src=" require('../../assets/images/' + product_data.image) " alt="img">
    <div>
    <p class="v-catalog-item__name">{{product_data.name}}</p>
-   <p class="v-catalog-item__price">Price: {{product_data.price}} p.</p>
+   <p class="v-catalog-item__price">Price: {{product_data.price | toFix | formattedPrice}} p.</p>
    <p class="v-catalog-item__category">Category: {{product_data.category}}</p>
    </div>
     </v-popup>
    <img class="v-catalog-item__image" :src=" require('../../assets/images/' + product_data.image) " alt="img">
    <p class="v-catalog-item__name">{{product_data.name}}</p>
-   <p class="v-catalog-item__price">Price: {{product_data.price}} p.</p>
+   <p class="v-catalog-item__price">Price: {{product_data.price | toFix | formattedPrice}} p.</p>
    <button class="v-catalog-item__show-info btn"
    @click="showInfoPopup"
    >
@@ -30,6 +30,8 @@
 
 <script>
 import vPopup from '../popup/v-popup.vue';
+import toFix from '../../filters/toFix';
+import formattedPrice from '../../filters/price-format';
 
 export default {
    name: 'v-catalog-item',
@@ -48,6 +50,10 @@ export default {
        return {
            isInfoPopupVisible: false,
        }
+   },
+   filters: {
+       toFix,
+       formattedPrice
    },
    computed: {},
    methods: {

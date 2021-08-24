@@ -1,5 +1,8 @@
 <template>
 <div class="v-catalog">
+  <v-notification 
+  :messages="messages"
+  />
   <router-link :to="{ name: 'cart', params: { cart_data: CART }}">
     <div class="v-catalog__link_to_cart">Cart: {{CART.length}}</div>
   </router-link>
@@ -22,15 +25,15 @@
       <input 
       type="range" 
       min="0" 
-      max="1000" 
-      step="10"
+      max="10000" 
+      step="100"
       v-model.number="minPrice"
       @change="setRangeSlider">
       <input 
       type="range" 
       min="0" 
-      max="1000" 
-      step="10"
+      max="10000" 
+      step="100"
       v-model.number="maxPrice"
       @change="setRangeSlider">
     </div>
@@ -52,13 +55,15 @@
 <script>
 import vSelect from '../v-select.vue';
 import vCatalogItem from './v-catalog-item.vue';
+import vNotification from '../notification/v-notification.vue';
 import {mapActions, mapGetters} from 'vuex';
 
 export default {
    name: 'v-catalog',
    components: {
        vSelect,
-       vCatalogItem
+       vCatalogItem,
+       vNotification
    },
    props: {},
    data() {
@@ -71,7 +76,8 @@ export default {
           selected: 'Все',
           sortedProducts: [],
           minPrice: 0,
-          maxPrice: 1000
+          maxPrice: 10000,
+          messages: []
     }
    },
    computed: {
@@ -96,7 +102,11 @@ export default {
         'ADD_TO_CART'
      ]),
      addToCart(data) {
-       this.ADD_TO_CART(data);
+       this.ADD_TO_CART(data)
+       .then(() => {
+         const timeStamp = Date.now().toLocaleString();
+         this.messages.unshift( { name: 'Товар добавлен в корзину!', icon: 'check_circle', id: timeStamp })
+       })
      },
     setFilter(option) {
       this.sortedProducts = [...this.PRODUCTS];
@@ -144,6 +154,7 @@ export default {
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 30px;
     }
     &__link_to_cart {
       position: absolute;
