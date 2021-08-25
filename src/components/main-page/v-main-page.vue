@@ -1,6 +1,6 @@
 <template>
 <div class="v-main-page">
-   <h1>Online-shop</h1>
+   <h1 class="v-main-page__title">Online-shop</h1>
    <p>
     <router-link :to="{name: 'catalog'}">
         to Catalog
@@ -40,5 +40,9 @@ export default {
 </script>
 
 <style lang="scss">
-
+.v-main-page {
+    &__title {
+        margin-bottom: 20px;
+    }
+}
 </style>

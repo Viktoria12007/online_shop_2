@@ -14,7 +14,11 @@
    <p class="v-catalog-item__category">Category: {{product_data.category}}</p>
    </div>
     </v-popup>
-   <img class="v-catalog-item__image" :src=" require('../../assets/images/' + product_data.image) " alt="img">
+   <img 
+   class="v-catalog-item__image" 
+   :src=" require('../../assets/images/' + product_data.image) " 
+   alt="img"
+   @click="productClick">
    <p class="v-catalog-item__name">{{product_data.name}}</p>
    <p class="v-catalog-item__price">Price: {{product_data.price | toFix | formattedPrice}} p.</p>
    <button class="v-catalog-item__show-info btn"
@@ -65,6 +69,9 @@ export default {
        },
        closeInfoPopup() {
          this.isInfoPopupVisible = false;
+       },
+       productClick() {
+         this.$emit('productClick', this.product_data.article)
        }
    },
    watch: {},

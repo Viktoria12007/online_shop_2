@@ -8,10 +8,10 @@
       type="text"
       v-model="searchValue"
       >
-      <button class="search_btn">
+      <button class="search_btn btn">
         <i class="material-icons" @click="search(searchValue)">search</i>
       </button>
-      <button class="search_btn">
+      <button class="search_btn btn">
         <i class="material-icons" @click="clearSearchField">cancel</i>
       </button>
     </div>
@@ -46,7 +46,6 @@ export default {
      search(value) {
        this.GET_SEARCH_VALUE_TO_VUEX(value);
        if (this.$route.path !== '/catalog') {
-           console.log(this.$route.path);
          this.$router.push('/catalog');
        }
      },
@@ -54,7 +53,6 @@ export default {
        this.searchValue = '';
        this.GET_SEARCH_VALUE_TO_VUEX();
        if (this.$route.path !== '/catalog') {
-           console.log('cdscdsc');
          this.$router.push('/catalog');
        }
      }
@@ -90,9 +88,14 @@ export default {
       display: flex;
       justify-content: center;
       align-items: center;
+      & input {
+        margin-right: 10px;
+      }
     }
     .search_btn {
-      margin-left: 16px;
+      color: #333333;
+      padding: 5px 5px;
+      margin-right: 10px;
       background: transparent;
       border: none;
     }

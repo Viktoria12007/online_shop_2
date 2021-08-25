@@ -47,7 +47,8 @@
    v-for="product in filteredProducts"
    :key="product.article"
    :product_data="product"
-   @addToCart="addToCart"/>
+   @addToCart="addToCart"
+   @productClick="productClick" />
    </div>
 </div>
 </template>
@@ -141,6 +142,9 @@ export default {
        else {
          return this.sortedProducts = this.PRODUCTS
        }
+     },
+     productClick(article) {
+       this.$router.push( {name: 'product', query: { 'product': article } } )
      }
     },
    watch: {
@@ -175,7 +179,7 @@ export default {
     }
     &__link_to_cart {
       position: absolute;
-      top: 100px;
+      top: 110px;
       right: 10px;
       padding: 16px;
       border: 1px solid lightgray;
